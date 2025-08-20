@@ -12,7 +12,7 @@ model User {
   email             String    @unique
   isSubscribed      Boolean   @default(false)
   subscriptionEnds  DateTime?
-  todos             Todo[]
+  todos             Todo[]      // linking hai foreign key jaisa
   
 }
 
@@ -21,7 +21,7 @@ model Todo {
   id        String   @id @default(cuid())
   title     String
   completed Boolean  @default(false)
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])  // kya field expt kr rha and kya ref hai 
   userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -33,6 +33,6 @@ database cpy past
 prisma install kro
 model likho 
 npx prisma migrate dev --name add-name-field
-npx prisma generate
+npx prisma generate  --> it is done to use prisma on the client side
 
 */

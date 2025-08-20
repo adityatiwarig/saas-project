@@ -1,11 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";  // extension bhi aata hai hata dena and read from docs
 
 
-const prismaClientSinglton = () => {
+const prismaClientSinglton = () => {  //prisma return krela
     return new PrismaClient()
 }
 
-const globalForPrisma = globalThis as unknown as {prisma: PrismaClient | 
+const globalForPrisma = globalThis as unknown as {prisma: PrismaClient |   // agr globalprisma hai to dedo
  undefined };
 
  const prisma = globalForPrisma.prisma ?? prismaClientSinglton()
